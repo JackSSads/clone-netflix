@@ -1,6 +1,7 @@
+import { useNavigate } from "react-router-dom";
 import "./FeatureMovie.css";
-
-export default function FeatureMovie({ item }) {
+export const FeatureMovie = ({ item }) => {
+    const navigate = useNavigate();
 
     const firstDate = new Date(item.first_air_date);
     let genres = [];
@@ -31,8 +32,8 @@ export default function FeatureMovie({ item }) {
                     </div>
                     <div className="featured--description">{description}</div>
                     <div className="featured--buttons">
-                        <a href={`/watch/${item.id}`} className="featured--watchbutton">► Assistir</a>
-                        <a href={`/add/${item.id}`} className="featured--mylistbutton">+ Minha Lista</a>
+                        <a onClick={() => navigate(`/tv/${item.id}`)} className="featured--watchbutton">► Assistir</a>
+                        <a onClick={() => navigate(`/add/${item.id}`)} className="featured--mylistbutton">+ Minha Lista</a>
                     </div>
                     <div className="featured--genres"><strong>Gênero:</strong> {genres.join(', ')}</div>
                 </div>

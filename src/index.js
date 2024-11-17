@@ -1,10 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { LayoutBase } from './layout/layoutBase';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { BrowserRouter } from "react-router-dom";
+import { AppRoutes } from './router';
+
+import "./index.css"
+
+const root = createRoot(document.getElementById('root'));
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <StrictMode>
+    <BrowserRouter>
+      <LayoutBase>
+        <AppRoutes />
+      </LayoutBase>
+    </BrowserRouter>
+  </StrictMode>
 );
